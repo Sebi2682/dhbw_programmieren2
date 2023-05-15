@@ -13,9 +13,10 @@ public class Generics01 {
     Kiste.insertBottle(new WineBottle(), 1);
     Kiste.insertBottle(new BeerBottle(), 4);
 
-    if(Kiste.takeBottle(4) instanceof BeerBottle beerBottle ){
+    if(Kiste.takeBottle(4).get() instanceof BeerBottle beerBottle ){
       beerBottle.chugALug();
     }
+
   }catch(CrateIndexOutOfBoundException e){
     System.out.println(e);
   }

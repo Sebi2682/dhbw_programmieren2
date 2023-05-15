@@ -18,7 +18,7 @@ public class Maps02 {
       System.out.println(e);
     }
 
-    System.out.println(regal.getBookByTitle("Buch3"));
-    System.out.println(regal.getMostDiligentAuthor());
+    System.out.println(regal.getBookByTitle("Buch3").get());
+    System.out.println(regal.getMostDiligentAuthor().get());
   }
 }

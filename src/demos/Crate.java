@@ -1,6 +1,8 @@
 package demos;
 
-public class Crate<T> {
+import java.util.Optional;
+
+public class Crate<T extends Bottle> {
 
   public T box1;
   public T box2;
@@ -14,39 +16,27 @@ public class Crate<T> {
       throw new CrateIndexOutOfBoundException(box);
     }
     switch (box) {
-      case 1:
-        box1 = bottle;
-      case 2:
-        box2 = bottle;
-      case 3:
-        box3 = bottle;
-      case 4:
-        box4 = bottle;
-      case 5:
-        box5 = bottle;
-      case 6:
-        box6 = bottle;
+      case 1 -> box1 = bottle;
+      case 2 -> box2 = bottle;
+      case 3 -> box3 = bottle;
+      case 4 -> box4 = bottle;
+      case 5 -> box5 = bottle;
+      default -> box6 = bottle;
     }
   }
 
-  public T takeBottle(int box) throws CrateIndexOutOfBoundException{
+  public Optional<T> takeBottle(int box) throws CrateIndexOutOfBoundException {
     if (box < 1 || box > 6) {
       throw new CrateIndexOutOfBoundException(box);
     }
-    switch (box) {
-      case 1:
-        return box1;
-      case 2:
-        return box2;
-      case 3:
-        return box3;
-      case 4:
-        return box4;
-      case 5:
-        return box5;
-      default:
-        return box6;
-    }
+    return switch (box) {
+      case 1 -> Optional.of(box1);
+      case 2 -> Optional.of(box2);
+      case 3 -> Optional.of(box3);
+      case 4 -> Optional.of(box4);
+      case 5 -> Optional.of(box5);
+      default -> Optional.of(box6);
+    };
 
   }
 

@@ -12,8 +12,9 @@ public class Maps01 {
     telephoneBook.addEntry(new Person("Peter"), new TelephoneNumber("33539295"));
     telephoneBook.addEntry(new Person("Anna"), new TelephoneNumber("29082985"));
     telephoneBook.addEntry(new Person("maira"), new TelephoneNumber("33459395"));
-
-      System.out.println(telephoneBook.getTelephoneNumberByName("hans"));
+      if(telephoneBook.getTelephoneNumberByName("hans").isPresent()) {
+        System.out.println(telephoneBook.getTelephoneNumberByName("hans").get());
+      }
 
 
   }
