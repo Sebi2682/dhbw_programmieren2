@@ -8,24 +8,22 @@ import java.util.Optional;
 
 public class BookCollection {
 
- // List<Book> books = new ArrayList<>();
+  // List<Book> books = new ArrayList<>();
   private HashMap<Author, List<Book>> collection = new HashMap<>();
 
   public void addAuthor(Author author) throws DuplicateKeyException {
     if (collection.containsKey(author)) {
       throw new DuplicateKeyException();
     }
-    collection.put(author, new ArrayList<Book>());
+    collection.put(author, new ArrayList<>());
 
   }
 
   public void addBook(Author author, Book book) {
-    if (collection.containsKey(author)) {
-      collection.get(author).add(book);
-    } else {
-      collection.put(author, new ArrayList<Book>());
-      collection.get(author).add(book);
+    if (!collection.containsKey(author)) {
+      collection.put(author, new ArrayList<>());
     }
+    collection.get(author).add(book);
   }
 
   public Optional<Author> getMostDiligentAuthor() {
@@ -49,7 +47,7 @@ public class BookCollection {
         }
       }
     }
-    return null;
+    return Optional.empty();
   }
 
   public record Author(String name) {

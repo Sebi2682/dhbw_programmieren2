@@ -12,13 +12,17 @@ public class TelephoneBook {
   }
 
   public Optional<TelephoneNumber> getTelephoneNumberByName(String name) {
+    if (entries.containsKey(new Person(name))) {
+      return Optional.of(entries.get(new Person(name)));
+    }
+    return Optional.empty();
+
   /*  for (Entry<Person, TelephoneNumber> entry : entries.entrySet()) {
       if (entry.getKey().name().equals(name)) {
-        return entry.getValue();
+        return Optional.of(entry.getValue());
       }
     }
-    return null;*/
-    return Optional.of(entries.get(new Person(name)));
+    return Optional.empty();*/
   }
 
   public record Person(String name) {
