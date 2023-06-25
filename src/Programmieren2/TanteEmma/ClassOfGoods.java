@@ -1,4 +1,4 @@
-package Programmieren2.Kassensystem;
+package Programmieren2.TanteEmma;
 
 public enum ClassOfGoods {
   BAKERY_PRODUCTS("Backwaren"), DAIRY_PRODUCTS("Milchprodukte"),
