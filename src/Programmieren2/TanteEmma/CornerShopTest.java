@@ -6,12 +6,8 @@ import static Programmieren2.TanteEmma.ClassOfGoods.FRUITS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.sun.jdi.connect.Connector.IntegerArgument;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+
 import java.util.TreeMap;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
 package Programmieren2.Warenkorb;
 
-public record Product(String description, double price) {
+public record Product(String description, double price) implements Sellable {
 }

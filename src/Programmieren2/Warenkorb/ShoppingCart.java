@@ -3,47 +3,57 @@ package Programmieren2.Warenkorb;
 import java.util.ArrayList;
 
 public class ShoppingCart<T extends Sellable> {
-    private final ArrayList<Item> items = new ArrayList<>();
 
-    class Item<T extends Sellable>{
-        private final T sellable;
-        private final int amount;
+  private final ArrayList<Item> items;
 
-        private Item(T sellable, int amount){
-            this.sellable = sellable;
-            this.amount = amount;
-        }
+  public ShoppingCart() {
+    items = new ArrayList<>();
+  }
 
-        public double getSubTotal(){
-            return amount * sellable.price();
-        }
+  public ArrayList<Item> getItems() {
+    return items;
+  }
 
-        public T getSellable() {
-            return sellable;
-        }
+  public void addItem(T sellable, int amount) {
+    items.add(new Item(sellable, amount));
+  }
 
-        public int getAmount() {
-            return amount;
-        }
+  public void removeItem(T sellable) {
+    for (Item i : items) {
+      if (i.sellable.equals(sellable)) {
+        items.remove(i);
+      }
+    }
+  }
+
+  public double getTotal() {
+    double total = 0;
+    for (Item i : items) {
+      total += i.getSubTotal();
+    }
+    return total;
+  }
+
+  public class Item {
+
+    private final T sellable;
+    private final int amount;
+
+    private Item(T sellable, int amount) {
+      this.sellable = sellable;
+      this.amount = amount;
     }
 
-    public ShoppingCart(){
-
+    public double getSubTotal() {
+      return amount * sellable.price();
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public T getSellable() {
+      return sellable;
     }
 
-    public void addItem(T sellable, int amount){
-
+    public int getAmount() {
+      return amount;
     }
-
-    public void removeItem(T sellable){
-
-    }
-
-    public double getTotal(){
-        return 0;
-    }
+  }
 }
