@@ -19,8 +19,14 @@ public class PlanetQueries {
 
     System.out.println(planets.stream().allMatch(m -> m.moons() >= 1));
 
+
+    //alle Planeten gruppiert nach Typ
     planets.stream().collect(Collectors.groupingBy(m -> m.type()))
         .forEach((t, p) -> System.out.println(t + ": " + p));
+
+    System.out.println(
+        planets.stream().collect(Collectors.groupingBy(m -> m.type())));
+
 
 
   }

@@ -44,8 +44,8 @@ public class JavaStreamApi01 {
         () -> System.out.println("Der Durchschnitt konnte nicht berechnet werden"));
 
     System.out.println("\n Konsolen gruppiert nach Herstellern");
-    System.out.println(videoGameConsoles.stream().collect(Collectors.groupingBy(
-        VideoGameConsole::maker)));
+    videoGameConsoles.stream().collect(Collectors.groupingBy(
+        VideoGameConsole::maker)).forEach((m, v) -> System.out.println(m + ":" + v));
 
     System.out.println("\n Anzahl verkaufter einheiten in Millionen");
     videoGameConsoles.stream().collect(Collectors.groupingBy(v -> v.maker()))
